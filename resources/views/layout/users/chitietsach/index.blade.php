@@ -185,7 +185,7 @@ button#book-add-cart i {
             <div class="col-sm-4 d-flex align-items-stretch">
                 <div class="single-item">
                     <div class="single-item-header" id="book-detail">
-                        <img src="{{asset('bookshop/img/sach').'/'.$sach->s_hinhanh}}" alt="">
+                        <img src="{{asset('backend/images/sach').'/'.$sach->s_hinhanh}}" alt="">
                     </div>
                 </div>
             </div>
@@ -295,7 +295,7 @@ button#book-add-cart i {
                 <div class="for_slick_slider multiple-items responsive">
                     @foreach ($goiy as $val)
                     <div class="items">
-                        <img src="{{asset('bookshop/img/sach/').'/'.$val->s_hinhanh}}" alt="">
+                        <img src="{{asset('backend/images/sach/').'/'.$val->s_hinhanh}}" alt="">
                     <span class="book_title">{{$val->s_ten}}</span>
                     </div>
                    

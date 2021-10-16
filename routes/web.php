@@ -23,6 +23,8 @@ route::post('/checklogin', 'UserController@postLogin')->name('postLogin');
 Route::get('/dangky','UserController@getRegister')->name('dangky'); 
 Route::get('/dangxuat','UserController@logout')->name('dangxuat'); 
 
+ //trang chủ
+ Route::get('/','Users\HomeController@index')->name('trangchu');
 
 Route::group(['prefix' => 'admin'], function () {
     
@@ -98,8 +100,7 @@ Route::group(['prefix' => 'admin'], function () {
 //trang người dùng
 Route::group(['prefix' => 'user'], function () {
 
-    //trang chủ
-    Route::get('/','Users\HomeController@index')->name('trangchu');
+   
 
     //chi tiết sách
     Route::get('/chi-tiet/{id}','Users\ChiTietSachController@index')->name('sach.chitiet');
