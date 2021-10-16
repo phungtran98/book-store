@@ -16,11 +16,11 @@ class CreateKhachhangTable extends Migration
         Schema::create('khachhang', function (Blueprint $table) {
             $table->bigIncrements('kh_id');
             $table->string('kh_ten');
-            $table->string('kh_email');
-            $table->string('kh_sdt');
-            $table->string('kh_gtinh');
-            $table->string('kh_diachi');
-            $table->string('kh_avatar');
+            $table->string('kh_email')->nullable();
+            $table->string('kh_sdt')->nullable();
+            $table->string('kh_gtinh')->nullable();
+            $table->string('kh_diachi')->nullable();
+            $table->string('kh_avatar')->nullable();
             
              //log time
              $table->timestamp('created_at')

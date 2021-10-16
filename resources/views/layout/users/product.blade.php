@@ -9,7 +9,7 @@
             <div class="col-sm-4 d-flex align-items-stretch my-3">
                 <div class="single-item">
                     <div class="single-item-header">
-                        <a href="{{ route('sach.chitiet',$val->s_id) }}"><img src="{{asset('bookshop/img/sach').'/'.$val->s_hinhanh}}" alt=""></a>
+                        <a href="{{ route('sach.chitiet',$val->s_id) }}"><img src="{{asset('backend/images/sach').'/'.$val->s_hinhanh}}" alt=""></a>
                     </div>
                     <div class="single-item-body">
                      <p class="single-item-title">{{$val->s_ten}}</p>
@@ -38,7 +38,7 @@
                     @foreach ($data2 as $val)
                     <div class="items">
                         <a href="{{ route('sach.chitiet',$val->s_id) }}">
-                        <img src="{{asset('bookshop/img/sach').'/'.$val->s_hinhanh}}" alt="">
+                        <img src="{{asset('backend/images/sach').'/'.$val->s_hinhanh}}" alt="">
                         <span class="book_title">{{$val->s_ten}}</span></a>
                     </div>
                     @endforeach

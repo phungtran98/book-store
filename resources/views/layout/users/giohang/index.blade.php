@@ -48,7 +48,7 @@
                     <tbody>
                         @foreach (Cart::content() as $val)
                             <tr>
-                                <td ><img src="{{asset('bookshop/img/sach').'/'.$val->options->image}}" alt="" style="width: 100px; height: 120px;"></td>
+                                <td ><img src="{{asset('backend/images/sach').'/'.$val->options->image}}" alt="" style="width: 100px; height: 120px;"></td>
                                 <td>{{$val->name}}</td>
                                 <td style="text-align: center; width: 100px">{{number_format($val->price)}}</td>
                                 <td style=" font-size:20px;">
