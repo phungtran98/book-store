@@ -23,17 +23,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //loại sách trền lên menu
-        // $loaisach = DB::table('loaisach')->get();
-        // view()->share('loaisach',$loaisach);
+        // loại sách trền lên menu
+        $loaisach = DB::table('loaisach')->get();
+        view()->share('loaisach',$loaisach);
 
-        // //tác giả
-        // $tacgia = DB::table('tacgia')->get();
-        // view()->share('tacgia', $tacgia);
+        //tác giả
+        $tacgia = DB::table('tacgia')->get();
+        view()->share('tacgia', $tacgia);
 
-        // //nhà xuất bản
-        // $nxb = DB::table('nhaxb')->get();
-        // view()->share('nxb', $nxb);
+        //nhà xuất bản
+        $nxb = DB::table('nhaxb')->get();
+        view()->share('nxb', $nxb);
 
     }
 }
