@@ -16,7 +16,7 @@
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <!-- font-awesome icons -->
 <link rel="stylesheet" href="{{asset('backend/css/font.css')}}" type="text/css"/>
-<link href="{{asset('backend/css/font-awesome.css')}}" rel="stylesheet"> 
+<link href="{{asset('backend/css/font-awesome.css')}}" rel="stylesheet">
 <link rel="stylesheet" href="{{asset('backend/css/morris.css')}}" type="text/css"/>
 <!-- calendar -->
 <link rel="stylesheet" href="{{asset('backend/css/monthly.css')}}">
@@ -51,17 +51,17 @@
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <img alt="" src="{{asset('backend/images/2.png')}}">
-                <span class="username">John Doe</span>
+                <span class="username">Quản trị</span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
                 {{-- <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                 <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li> --}}
-                <li><a href="{{ route('dangxuat') }}"><i class="fa fa-key"></i>Đăng xuất</a></li>
+                <li><a href="{{ route('admin.handle-logout') }}"><i class="fa fa-key"></i>Đăng xuất</a></li>
             </ul>
         </li>
         <!-- user login dropdown end -->
-       
+
     </ul>
     <!--search & user info end-->
 </div>
@@ -73,7 +73,7 @@
         <!-- sidebar menu start-->
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
-                
+
                 <li class="sub-menu active">
                     <a href="{{ route('sach.index') }}">
                         <i class="fa fa-book"></i>
@@ -139,7 +139,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="{{ route('admin.handle-logout') }}">
                         <i class="fa fa-user"></i>
                         <span>Đăng xuất</span>
                     </a>
@@ -153,8 +153,8 @@
 <section id="main-content">
 	<section class="wrapper">
 	@yield('content')
-	
-				
+
+
     </section>
  <!-- footer -->
     <div class="footer">
@@ -173,7 +173,7 @@
 <script src="{{asset('backend/js/jquery.nicescroll.js')}}"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 <script src="{{asset('backend/js/jquery.scrollTo.js')}}"></script>
-<!-- morris JavaScript -->	
+<!-- morris JavaScript -->
 <script src="{{asset('bookshop/vendor/ckeditor/ckeditor.js')}}"></script>
 @stack('script')
 </body>

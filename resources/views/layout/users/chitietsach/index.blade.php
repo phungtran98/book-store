@@ -72,7 +72,7 @@
 }
 .nav-tabs .nav-link {
     border: unset;
-    
+
 }
 /* #nav-tabContent {
     border-left: 1px solid #5fce0b;
@@ -120,7 +120,7 @@ a#book-add-cart:hover button{
 h1{font-size:1.5em;margin:10px;}
 /****** Style Star Rating Widget *****/
 #rating {
-  
+
     top: 22px;
     /* border: 1px solid; */
     height: 40px;
@@ -134,7 +134,7 @@ h1{font-size:1.5em;margin:10px;}
 #rating>label{color:#ddd;float:right;}/*float:right để lật ngược các ngôi sao lại đúng theo thứ tự trong thực tế*/
 /*thêm màu cho sao đã chọn và các ngôi sao phía trước*/
 #rating>input:checked~label,
-#rating:not(:checked)>label:hover, 
+#rating:not(:checked)>label:hover,
 #rating:not(:checked)>label:hover~label{color:#FFD700;}
 /* Hover vào các sao phía trước ngôi sao đã chọn*/
 #rating>input:checked+label:hover,
@@ -207,9 +207,9 @@ button#book-add-cart i {
                     </form>
                 </div>
             </div>
-            
+
         </div>
-       
+
         <div class="row my-5">
             <div class="col-sm-12 book-tab">
                 <nav>
@@ -226,7 +226,7 @@ button#book-add-cart i {
                        <p id="echo_comment"></p>
                         <div id="bookkk">
                         </div>
-                        
+
                         @foreach ($binhluan as $item)
                             <div class="book-comment">
                                 <img src="{{asset('bookshop/img/user/').'/'.$item->kh_avatar}}" alt="">
@@ -244,31 +244,31 @@ button#book-add-cart i {
                             <div id="rating">
                                     <input type="radio" id="star5" name="rating" class="rating" value="5" />
                                     <label class = "full" for="star5" ></label>
-                                    
+
                                     <input type="radio" id="star4half" name="rating"  value="4.5" class="rating"/>
                                     <label class="half" for="star4half" ></label>
-                                    
+
                                     <input type="radio" id="star4" name="rating" value="4" class="rating"/>
                                     <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-                                    
+
                                     <input type="radio" id="star3half" name="rating" value="3.5" class="rating"/>
                                     <label class="half" for="star3half" ></label>
-                                    
+
                                     <input type="radio" id="star3" name="rating" value="3" class="rating"/>
                                     <label class = "full" for="star3" ></label>
-                                    
+
                                     <input type="radio" id="star2half" name="rating" value="2.5" class="rating"/>
                                     <label class="half" for="star2half" ></label>
-                                    
+
                                     <input type="radio" id="star2" name="rating" value="2" class="rating"/>
                                     <label class = "full" for="star2" ></label>
-                                    
+
                                     <input type="radio" id="star1half" name="rating" value="1.5" class="rating"/>
                                     <label class="half" for="star1half" ></label>
-                                    
+
                                     <input type="radio" id="star1" name="rating" value="1" class="rating"/>
                                     <label class = "full" for="star1" ></label>
-                                    
+
                                     <input type="radio" id="starhalf" name="rating" value="half" class="rating"/>
                                     <label class="half" for="starhalf" ></label>
                                 </div>
@@ -298,8 +298,8 @@ button#book-add-cart i {
                         <img src="{{asset('backend/images/sach/').'/'.$val->s_hinhanh}}" alt="">
                     <span class="book_title">{{$val->s_ten}}</span>
                     </div>
-                   
-                    @endforeach  
+
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -313,8 +313,8 @@ button#book-add-cart i {
     // CKEDITOR.replace( 'editor1' );
 
     $(document).ready(function () {
-       
-        $('#book-submit').click(function (e) { 
+
+        $('#book-submit').click(function (e) {
             e.preventDefault();
             var noidung = $('.noidung').val();
             var sach = $('#s_id').val();
@@ -328,12 +328,12 @@ button#book-add-cart i {
                 success: function (response) {
                     // console.log(response.success);
                     if(response.success !=null){
-                        $.each(response.success, function (index, val) { 
+                        $.each(response.success, function (index, val) {
                             // console.log(val.created_at);
                             var source = "{{asset('bookshop/img/user/')}}" +'/'+ val.kh_avatar;
                             // var time ='d-m-Y H:m';
                             // var timezone = '<span style="margin-left:490px;">{{date('+time+', strtotime('+ val.created_at+'))}}</span>';
-                            
+
                             var noidung ='<div class="book-comment">'+
                                 '<img src='+ source +' alt="">'+
                                 '<div class="book-content-comment">' +
@@ -342,24 +342,23 @@ button#book-add-cart i {
                             '</div>';
                             $('#bookkk').append(noidung);
                             // console.log(val.bl_noidung);
-                        
-                        });  
+
+                        });
                     }
                 }
-                
+
             });
             $('.noidung').val('');
-               
+
         });
 
 
-      
 
-        
-        
-        
+
+
+
+
     });
 </script>
 @endpush
 @endsection
-  

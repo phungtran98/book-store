@@ -6,23 +6,25 @@
             @if(Session::has('mess'))
             <div class="alert alert-success" style="width:82%;">
                {{Session::get('mess')}}
-               
+
             </div>
             {{Session::put('mess',null)}}
             @endif
         </div>
     </div>
 </div>
-<div class="table-agile-info">  
+<div class="table-agile-info">
     <div class="container">
         <div class="row">
-          
+
             <div class="col-sm-5" >
                 <small>
-                  <a data-toggle="modal" data-target="#exampleModal" class="tst4 btn btn-success" style="margin-left: -15px;">Thêm thể sách
+                  <a data-toggle="modal" data-target="#exampleModal" class="tst4 btn btn-success" style="margin-left: -15px;">Thêm sách
                 </a></small>
+              <br>
+              <br>
+
               </div>
-                
         </div>
     </div>
     <div class="panel panel-default">
@@ -47,15 +49,15 @@
                     <td>{{$val->s_ten}}</td>
                     <td>{{$val->s_gia}}</td>
                     <td class="book-hinhanh">{{$val->s_hinhanh}}</td>
-                    <td>{{$val->s_mota}}</td>
+                    <td>{!! $val->s_mota !!}</td>
                     <td>
                         @if ($val->s_trangthai == 1)
-                          <a href="{{ route('sach.trangthai',[$val->s_id,$val->s_trangthai]) }}"><i class="fa fa-chevron-up"></i></a>  
-                        @else 
+                          <a href="{{ route('sach.trangthai',[$val->s_id,$val->s_trangthai]) }}"><i class="fa fa-chevron-up"></i></a>
+                        @else
                             <a href="{{ route('sach.trangthai',[$val->s_id,$val->s_trangthai]) }}"><i class="fa fa-chevron-down"></i></a>
                         @endif
-                        
-                        
+
+
                     </td>
                     <td>
                             <a href="{{ route('sach.capnhat',$val->s_id) }}"> <i class="fa fa-edit"></i></a>&nbsp;  &nbsp;  &nbsp;
@@ -63,8 +65,8 @@
                     </td>
                 </tr>
                @endforeach
-              
-           
+
+
            </tbody>
          </table>
        </div>
@@ -91,7 +93,7 @@
                 <div class="form-group">
                 <label for="">Tên sách:</label>
                 <input type="text"class="form-control" name="s_ten" >
-                </div> 
+                </div>
                 <div class="form-group">
                 <label for="">Giá:</label>
                 <input type="text"class="form-control" name="s_gia" >
@@ -112,7 +114,7 @@
                     @foreach ($loaisach as $val)
                          <option value="{{$val->ls_id}}">{{$val->ls_ten}}</option>
                     @endforeach
-                   
+
                     </select>
                 </div>
                 <div class="form-group">
@@ -137,11 +139,14 @@
                     <label for="">Mô tả</label>
                     <textarea name="s_mota" id="editor1" rows="10" cols="80" ></textarea>
                 </div>
-                
+                <div class="form-group">
+                    <label for="">Nội dung ngắn</label>
+                    <textarea name="s_noidung" id="editor2" rows="10" cols="80" ></textarea>
+                </div>
             </div>
         </div>
         <div class="modal-footer">
-          <button type="reset" class="btn btn-warning">Làm lại</button> 
+          <button type="reset" class="btn btn-warning">Làm lại</button>
           <button type="submit" class="btn btn-success">Lưu</button>
         </div>
     </form>
@@ -151,6 +156,7 @@
 @push('script')
 <script>
     CKEDITOR.replace( 'editor1' );
+    CKEDITOR.replace( 'editor2' );
 </script>
 @endpush
 @endsection

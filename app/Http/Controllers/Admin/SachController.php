@@ -46,7 +46,7 @@ class SachController extends Controller
             $data['ls_id']=$request->ls_id;
             $data['tg_id']=$request->tg_id;
             $data['nxb_id']=$request->nxb_id;
-
+            $data['s_noidung']=$request->s_noidung;
             // dd($data);
 
             $result = DB::table('sach')->insert($data);
@@ -73,21 +73,21 @@ class SachController extends Controller
        {
             $data['s_trangthai'] =0;
             $result = DB::table('sach')->where('s_id',$id)->update($data);
-           
-            
+
+
                 Session::put('mess','Cập nhật thành công trạng thái!');
                 return redirect()->route('sach.index');
-            
+
        }
        else
             if($st == 0)
             {
                 $data['s_trangthai'] =1;
                 $result = DB::table('sach')->where('s_id',$id)->update($data);
-              
+
                     Session::put('mess','Cập nhật thành công trạng thái!');
                     return redirect()->route('sach.index');
-                
+
             }
     }
 
@@ -97,7 +97,7 @@ class SachController extends Controller
     public function getform($id)
     {
 
-        
+
         $data = DB::table('sach')
         ->join('tacgia','tacgia.tg_id','sach.tg_id')
         ->join('nhaxb','nhaxb.nxb_id','sach.nxb_id')
@@ -107,7 +107,7 @@ class SachController extends Controller
         // dd($data);
         // $tacgia =DB::table('tacgia')->get();
         // $nxb = DB::table('nhaxb')->get();
-        // $loaisach =DB::table('loaisach')->get();    
+        // $loaisach =DB::table('loaisach')->get();
         return view('layout.admin.sach.update',compact('data'));
     }
     public function show($id)
@@ -176,7 +176,7 @@ class SachController extends Controller
      */
     public function destroy($id)
     {
-        
+
         $result = DB::table('sach')->where('s_id',$id)->delete();
         if($result)
         {

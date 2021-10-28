@@ -21,10 +21,10 @@ class SachController extends Controller
     }
 
 
-    
+
     public function Author($id)
     {
-     
+
         $data = DB::table('sach')->where('s_trangthai',1)->where('tg_id',$id)->paginate(3);
         $tacgia1= DB::table('tacgia')->where('tg_id',$id)->first();
         // dd($loaisach);
@@ -32,7 +32,7 @@ class SachController extends Controller
     }
     public function nxb($id)
     {
-     
+
         $data = DB::table('sach')->where('s_trangthai',1)->where('nxb_id',$id)->paginate(3);
         $nxb1= DB::table('nhaxb')->where('nxb_id',$id)->first();
         // dd($loaisach);
@@ -57,8 +57,17 @@ class SachController extends Controller
 
     public function search(Request $request)
     {
-        $data = DB::table('sach')->where('s_trangthai',1)->where('s_ten','like','%'.$request->search.'%')->get();
 
+        $arrKey = explode(" ",$request->search);
+        // dd($arrKey);
+        $finding = DB::table('sach');
+        foreach ($arrKey as $key => $value) {
+            # code...
+            $finding->orWhere('s_noidung','like','%'.$value.'%');
+            $finding->orWhere('s_ten', 'like', '%'.$value.'%');
+        }
+        $finding->where('s_trangthai',1);
+        $data = $finding->get();
         return view('layout.users.sach.timkiem',compact('data'));
     }
 

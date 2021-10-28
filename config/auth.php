@@ -56,6 +56,15 @@ return [
             'driver' => 'token',
             'provider' => 'taikhoan',
         ],
+
+        'quantri' => [
+            'driver' => 'session',
+            'provider' => 'quantri',
+        ],
+        'quantri-api' => [
+            'driver' => 'token',
+            'provider' => 'quantri',
+        ],
     ],
 
     /*
@@ -83,6 +92,10 @@ return [
         'taikhoan' => [
             'driver' => 'eloquent',
             'model' => App\Taikhoan::class,
+        ],
+        'quantri' => [
+            'driver' => 'eloquent',
+            'model' => App\QuanTri::class,
         ],
 
 

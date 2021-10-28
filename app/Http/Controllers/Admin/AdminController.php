@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Auth;
 class AdminController extends Controller
 {
     /**
@@ -27,7 +27,24 @@ class AdminController extends Controller
     {
         //
     }
+    public function login(Request $request){
+        $arrr = [
+            'username' => $request->username,
+            'password' => $request->password,
+        ];
+        // dd($arrr);
+        if(Auth::guard('quantri')->attempt($arrr)){
+            return redirect()->route('dashboard');
+        }else {
+            return redirect()->route('admin.login');
+        }
+    }
 
+    public function logout()
+    {
+        Auth::guard('quantri')->logout();
+        return redirect()->route('admin.login');
+    }
     /**
      * Display the specified resource.
      *
